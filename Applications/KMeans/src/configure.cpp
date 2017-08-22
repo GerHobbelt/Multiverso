@@ -52,7 +52,6 @@ Configure::Configure(const std::string& config_file) {
 
   CONFIG_PARSE_DOUBLE(regular_coef);
   CONFIG_PARSE_DOUBLE(learning_rate);
-  CONFIG_PARSE_DOUBLE(learning_rate_coef);
 
   CONFIG_PARSE_BOOL(use_ps);
   CONFIG_PARSE_BOOL(sparse);
@@ -65,9 +64,12 @@ Configure::Configure(const std::string& config_file) {
   CONFIG_PARSE_INT(show_time_per_sample);
 
   CONFIG_PARSE_BOOL(sync_mode);
-  CONFIG_PARSE_INT(num_iters);
   CONFIG_PARSE_INT(num_records);
   CONFIG_PARSE_INT(class_type);
+  CONFIG_PARSE_INT(K);
+  CONFIG_PARSE_INT(num_training_workers);
+  CONFIG_PARSE_DOUBLE(learning_rate_coef);
+  CONFIG_PARSE_INT(num_iters);
 }
 
 

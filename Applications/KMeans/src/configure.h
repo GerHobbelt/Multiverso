@@ -39,7 +39,6 @@ public:
   // learning rate = max(1e-3, 
   //      initial - (update count - learning rate coef * minibatch size))
   // one mini-batch update once
-  double learning_rate_coef = 1e6;
 
   // input data for training
   // use ; to separate different files
@@ -68,9 +67,12 @@ public:
   int sync_frequency = 1;
 
   bool sync_mode = false;
-  int num_iters = -1;
   int num_records = 0;
   int class_type = 0;
+  int K = 2;
+  int num_training_workers = 1;
+  double learning_rate_coef = 1e6;
+  int num_iters = -1;
 
 private:
   enum ValueType {
