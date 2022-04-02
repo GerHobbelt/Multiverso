@@ -138,8 +138,8 @@ class KMeans {
         table_->Add(params.data(), params.size());
       }
     }
-
   }
+
   void Train() {
     /*{
       // Check the initial params
