@@ -37,7 +37,7 @@ namespace multiverso
          * \param endpoint The communication ZQM socket endpoint
          */
         Server(int server_id, int num_worker_process, std::string endpoint);
-        /*! \brief Destroies the server instance and terminates the server thread.*/
+        /*! \brief Destroys the server instance and terminates the server thread.*/
         ~Server();
 
         /*! brief Blocks current threads and waits for the server thread completed.*/

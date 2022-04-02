@@ -24,7 +24,7 @@ namespace multiverso
     class CommandLineParser
     {
     public:
-        CommandLineParser(int argc, char *argv[]);
+        CommandLineParser(int argc, const char *argv[]);
         ~CommandLineParser();
 
         /*! \brief Returns whether the specific key exists. */

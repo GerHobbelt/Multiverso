@@ -3,7 +3,7 @@
 
 namespace multiverso
 {
-    CommandLineParser::CommandLineParser(int argc, char *argv[])
+    CommandLineParser::CommandLineParser(int argc, const char *argv[])
     {
         for (int i = 1; i < argc; ++i)
         {

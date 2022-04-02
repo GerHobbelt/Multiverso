@@ -10,7 +10,7 @@
 namespace multiverso
 {
     // Creates Communicator object and starts communication thread.
-    Communicator::Communicator(const Config &config, int *argc, char **argv[])
+    Communicator::Communicator(const Config &config, int *argc, const char **argv[])
     {
         reg_info_.proc_rank = -1;
         reg_info_.proc_count = -1;
@@ -50,12 +50,12 @@ namespace multiverso
         }
     }
 
-    // Destroies the Communicator object.
+    // Destroys the Communicator object.
     Communicator::~Communicator()
     {
         delete server_;
 
-        // POTENTIAL ISSUE: if stoping the communicator too early, there might
+        // POTENTIAL ISSUE: if stopping the communicator too early, there might
         //                  be unprocessed messages. We should design a method
         //                  to make sure that all messages have been sent.
         std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -103,7 +103,7 @@ namespace multiverso
         if (reg_info_.server_count != buffer[2])
         {
             Log::Fatal(
-                "Rank %d/%d: Inconsistance in number of servers: local=%d vs. global=%d\n",
+                "Rank %d/%d: Inconsistence in number of servers: local=%d vs. global=%d\n",
                 reg_info_.proc_rank, reg_info_.proc_count, 
                 reg_info_.server_count, buffer[2]);
         }

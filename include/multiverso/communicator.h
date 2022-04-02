@@ -33,7 +33,7 @@ namespace multiverso
          * \param argc Number of commandline arguments, for initializing MPI
          * \param argv Commandline arguments, for initializing MPI
          */
-        Communicator(const Config &config, int *argc, char **argv[]);
+        Communicator(const Config &config, int *argc, const char **argv[]);
         /*! \brief Cleans up and closes the communicator (thread). */
         ~Communicator();
 

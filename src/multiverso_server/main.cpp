@@ -9,7 +9,7 @@
 #include "endpoint_list.h"
 
 // Writes the help information.
-void Help()
+static void Help()
 {
     std::string help_info = "";
     help_info = help_info
@@ -27,7 +27,7 @@ void Help()
 }
 
 // Returns the LogLevel according to the string.
-multiverso::LogLevel GetLogLevel(std::string level)
+static multiverso::LogLevel GetLogLevel(std::string level)
 {
     std::transform(level.begin(), level.end(), level.begin(), ::tolower);
     if (level == "debug")
@@ -50,7 +50,12 @@ multiverso::LogLevel GetLogLevel(std::string level)
 }
 
 // Main entrance function
-int main(int argc, char *argv[])
+
+#if defined(BUILD_MONOLITHIC)
+#define main    llda_multiverso_server_main
+#endif
+
+int main(int argc, const char **argv)
 {
     multiverso::CommandLineParser cl_parser(argc, argv); // parse the commandline
     if (cl_parser.HasKey("-help")) // output the help information

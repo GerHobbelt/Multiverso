@@ -12,11 +12,11 @@
 namespace multiverso
 {
 /*!
- * \brief If defined the _MPI_VERSION_ macro, the communication rountine will 
+ * \brief If defined the _MPI_VERSION_ macro, the communication routine will 
  *        be compiled with MPI facilities, or ZMQ facilities will be used for 
  *        inter-process communication.
  */
-#define _MPI_VERSION_
+#undef _MPI_VERSION_
 
 #define _MULTIVERSO_DEBUG_
 
@@ -27,7 +27,7 @@ namespace multiverso
     typedef int integer_t;
 
     /*! 
-     * \brief A very small number for comparision. Two values are regarded as
+     * \brief A very small number for comparison. Two values are regarded as
      * identical if their difference is within this gap.
      */
     const double kEPS = 1e-9;
@@ -112,7 +112,7 @@ namespace multiverso
     };
 
     /*
-    * \brief A simple data structure for passing the configuration parapmeters
+    * \brief A simple data structure for passing the configuration parameters
     *        to Multiverso.
     */
     struct Config

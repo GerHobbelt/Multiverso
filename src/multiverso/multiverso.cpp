@@ -44,7 +44,7 @@ namespace multiverso
     // Initializes Multiverso environment
     int Multiverso::Init(std::vector<TrainerBase*> &trainers,
         ParameterLoaderBase *param_loader, const Config &config, 
-        int *argc, char **argv[])
+        int *argc, const char **argv[])
     {
 #if defined (_MULTIVERSO_DEBUG_)
         Log::ResetLogLevel(LogLevel::Debug);
@@ -84,7 +84,7 @@ namespace multiverso
         return ret;
     }
 
-    int Multiverso::Init(const Config &config, int *argc, char **argv[])
+    int Multiverso::Init(const Config &config, int *argc, const char **argv[])
     {
 #if defined (_MULTIVERSO_DEBUG_)
         Log::ResetLogLevel(LogLevel::Debug);

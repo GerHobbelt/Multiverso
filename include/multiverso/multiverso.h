@@ -58,20 +58,20 @@ namespace multiverso
          */
         static int Init(std::vector<TrainerBase*> &trainers, 
             ParameterLoaderBase *param_loader, const Config &config, 
-            int *argc, char **argv[]);
+            int *argc, const char **argv[]);
 
         /*!
          * \brief Initializes the Multiverso environment, this version won't 
          *        handle multi-thread logic
          * \param see \ref Init above
          */
-        static int Init(const Config &config, int *argc, char **argv[]);
+        static int Init(const Config &config, int *argc, const char **argv[]);
 
         /*!
          * \brief Closes Multiverso environment.
          * \param finalize Only applied in MPI version. If finalize == true, 
          *        MPI will be closed and users do not able to reuse Multiverso
-         *        in another round; or MPI will be kept and uers are allowed to
+         *        in another round; or MPI will be kept and users are allowed to
          *        re-init Multiverso.
          */
         static void Close(bool finalize = true);
@@ -98,14 +98,14 @@ namespace multiverso
          *        aggregator. And the copies in local cache and aggregator have
          *        memory pools with the same size. If you would like them to
          *        have different memory pool size or other options, you will
-         *        you will call the specific AddXXXTable(...) method seperately.
+         *        you will call the specific AddXXXTable(...) method separately.
          * \param table Identity of the table, indexed from 0
          * \param rows Number of rows
          * \param cols Number of columns
          * \param type Element type
          * \param default_format Default format
          * \param memory_pool_size If greater than 0, a memory pool will be 
-         *        created and the table will resue the memory as possible as 
+         *        created and the table will re-use the memory as possible as 
          *        it can
          */
         static void AddTable(integer_t table, integer_t rows, integer_t cols, 
@@ -159,12 +159,12 @@ namespace multiverso
          * \brief A unified method of setting a row in server, cache and 
          *        aggregator with identical options. If you would like to set
          *        the row with different settings in these three tables, you
-         *        will call the corresponding SetXXXRow(...) methods seperately.
+         *        will call the corresponding SetXXXRow(...) methods separately.
          * \param table Identity of the table
          * \param row Identity of the row
          * \param format Row format
          * \param capacity The maximal number of elements in the row. It is
-         *        fixed for DENSE row and could be automatically growed for 
+         *        fixed for DENSE row and could be automatically grown for 
          *        SPARSE row
          */
         static void SetRow(integer_t table, integer_t row, Format format,
@@ -176,7 +176,7 @@ namespace multiverso
          * \param row Identity of the row
          * \param format Row format
          * \param capacity The maximal number of elements in the row, it could
-         *        be automatically growed for SPARSE row
+         *        be automatically grown for SPARSE row
          */
         static void SetServerRow(integer_t table, integer_t row, Format format,
             integer_t capacity);
@@ -186,7 +186,7 @@ namespace multiverso
          * \param row Identity of the row
          * \param format Row format
          * \param capacity The maximal number of elements in the row, it could
-         *        be automatically growed for SPARSE row.
+         *        be automatically grown for SPARSE row.
          */
         static int SetCacheRow(integer_t table, integer_t row, Format format, 
             integer_t capacity);
@@ -196,7 +196,7 @@ namespace multiverso
          * \param row Identity of the row
          * \param format Row format
          * \param capacity The maximal number of elements in the row, it could
-         *        be automatically growed for SPARSE row.
+         *        be automatically grown for SPARSE row.
          */
         static int SetAggregatorRow(integer_t table, integer_t row, Format format, 
             integer_t capacity);
@@ -221,7 +221,7 @@ namespace multiverso
         static void BeginClock();
         /*! \brief End of each clock period (epoch).*/
         static void EndClock();
-        /*! \brief Pushs a data block into Multiverso and triggers an iteration.*/
+        /*! \brief Pushes a data block into Multiverso and triggers an iteration.*/
         static void PushDataBlock(DataBlockBase *data_block);
         /*! \brief Wait all data block */
         static void Wait();
